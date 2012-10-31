@@ -1,0 +1,4 @@
+urlencode
+=========
+
+encodeURIComponent with charset
