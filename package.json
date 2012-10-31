@@ -1,0 +1,32 @@
+{
+  "name": "urlencode",
+  "version": "0.0.1",
+  "description": "encodeURIComponent with charset",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test && make benchmark"
+  },
+  "dependencies": {
+    "iconv-lite": "0.2.x"
+  },
+  "devDependencies": {
+    "should": "*",
+    "benchmark": "*",
+    "mocha": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fengmk2/urlencode.git"
+  },
+  "keywords": [
+    "urlencode",
+    "urldecode",
+    "encodeURIComponent",
+    "decodeURIComponent"
+  ],
+  "author": "fengmk2 <fengmk2@gmail.com>",
+  "license": "MIT"
+}

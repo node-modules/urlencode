@@ -1,0 +1,1 @@
+module.exports = process.env.URLENCODE_COV ? require('./lib-cov/urlencode') : require('./lib/urlencode');
