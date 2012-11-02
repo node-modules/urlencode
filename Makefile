@@ -1,6 +1,7 @@
 TESTS = test/*.js
 REPORTER = spec
 TIMEOUT = 10000
+JSCOVERAGE = ./node_modules/.bin/jscover
 
 test:
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
@@ -15,7 +16,7 @@ test-cov:
 	@URLENCODE_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
 
 lib-cov:
-	@jscoverage lib $@
+	@$(JSCOVERAGE) lib $@
 
 benchmark:
 	@node benchmark/urlencode.js

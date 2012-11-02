@@ -15,6 +15,7 @@
   "devDependencies": {
     "should": "*",
     "benchmark": "*",
+    "jscover": "*",
     "mocha": "*"
   },
   "repository": {
