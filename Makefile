@@ -1,24 +1,29 @@
-TESTS = test/*.js
+TESTS = test/*.test.js
 REPORTER = spec
 TIMEOUT = 10000
-JSCOVERAGE = ./node_modules/.bin/jscover
+MOCHA_OPTS =
 
 test:
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
 		--reporter $(REPORTER) \
 		--timeout $(TIMEOUT) \
+		$(MOCHA_OPTS) \
 		$(TESTS)
 
 test-cov:
-	@rm -rf ./lib-cov
-	@$(MAKE) lib-cov
-	@URLENCODE_COV=1 $(MAKE) test
-	@URLENCODE_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
+	@rm -f coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=html-cov > coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=travis-cov
+	@ls -lh coverage.html
 
-lib-cov:
-	@$(JSCOVERAGE) lib $@
+test-coveralls:
+	@$(MAKE) test
+	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
 
 benchmark:
 	@node benchmark/urlencode.js
 
-.PHONY: test-cov test lib-cov benchmark
+test-all: test test-cov benchmark
+
+.PHONY: test test-cov test-coveralls benchmark test-all

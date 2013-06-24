@@ -39,8 +39,8 @@ suite
 })
 
 // add listeners
-.on('cycle', function (event, bench) {
-  console.log(String(bench));
+.on('cycle', function (event) {
+  console.log(String(event.target));
 })
 .on('complete', function () {
   console.log('Fastest is ' + this.filter('fastest').pluck('name'));

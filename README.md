@@ -1,4 +1,4 @@
-urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](http://travis-ci.org/fengmk2/urlencode)
+urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](http://travis-ci.org/fengmk2/urlencode) [![Coverage Status](https://coveralls.io/repos/fengmk2/urlencode/badge.png)](https://coveralls.io/r/fengmk2/urlencode)
 =======
 
 ![logo](https://raw.github.com/fengmk2/urlencode/master/logo.png)
@@ -36,7 +36,7 @@ Fastest is urlencode(str),encodeURIComponent(str)
 
 (The MIT License)
 
-Copyright (c) 2012 fengmk2 &lt;fengmk2@gmail.com&gt;
+Copyright (c) 2012 - 2013 fengmk2 &lt;fengmk2@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
