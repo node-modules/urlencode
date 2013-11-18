@@ -1,6 +1,8 @@
 urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](http://travis-ci.org/fengmk2/urlencode) [![Coverage Status](https://coveralls.io/repos/fengmk2/urlencode/badge.png)](https://coveralls.io/r/fengmk2/urlencode)
 =======
 
+[![NPM](https://nodei.co/npm/urlencode.png?downloads=true&stars=true)](https://nodei.co/npm/urlencode/)
+
 ![logo](https://raw.github.com/fengmk2/urlencode/master/logo.png)
 
 encodeURIComponent with charset.
@@ -32,7 +34,7 @@ encodeURIComponent(str) x 11,723 ops/sec ±3.93% (91 runs sampled)
 Fastest is urlencode(str),encodeURIComponent(str)
 ```
 
-## License 
+## License
 
 (The MIT License)
 
