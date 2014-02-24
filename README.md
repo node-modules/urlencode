@@ -21,7 +21,13 @@ $ npm install urlencode
 var urlencode = require('urlencode');
 
 console.log(urlencode('苏千')); // default is utf8
-console.log(urlencode('苏千', 'gbk'));
+console.log(urlencode('苏千', 'gbk')); // '%CB%D5%C7%A7'
+
+// decode gbk
+urlencode.decode('%CB%D5%C7%A7', 'gbk'); // '苏千'
+
+// parse gbk querystring
+urlencode.parse('nick=%CB%D5%C7%A7', 'gbk'); // {nick: '苏千'}
 ```
 
 ## Benchmark

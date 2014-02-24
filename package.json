@@ -1,6 +1,6 @@
 {
   "name": "urlencode",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "encodeURIComponent with charset",
   "main": "index.js",
   "scripts": {
