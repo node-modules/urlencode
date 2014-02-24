@@ -4,27 +4,29 @@
   "description": "encodeURIComponent with charset",
   "main": "index.js",
   "scripts": {
-    "test": "make test-all",
-    "blanket": { 
-      "pattern": "urlencode/lib", 
-      "data-cover-flags": {
-        "debug": false
-      } 
+    "test": "make test-all"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "urlencode/lib"
     },
     "travis-cov": { "threshold": 98 }
   },
   "dependencies": {
-    "iconv-lite": "0.2.x"
+    "iconv-lite": "0.2.11",
+    "utility": "0.1.10"
   },
   "devDependencies": {
-    "should": "*",
+    "autod": "*",
     "benchmark": "*",
     "blanket": "*",
-    "travis-cov": "*",
     "coveralls": "*",
+    "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "mocha": "*"
+    "should": "3.1.2",
+    "travis-cov": "*"
   },
+  "homepage": "https://github.com/fengmk2/urlencode",
   "repository": {
     "type": "git",
     "url": "git://github.com/fengmk2/urlencode.git"

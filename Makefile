@@ -3,8 +3,11 @@ REPORTER = spec
 TIMEOUT = 10000
 MOCHA_OPTS =
 
-test:
-	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
+install:
+	@npm install --registry=http://r.cnpmjs.org
+
+test: install
+	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter $(REPORTER) \
 		--timeout $(TIMEOUT) \
 		$(MOCHA_OPTS) \
@@ -19,11 +22,14 @@ test-cov:
 test-coveralls:
 	@$(MAKE) test
 	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
-	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/.bin/coveralls
 
 benchmark:
 	@node benchmark/urlencode.js
 
 test-all: test test-cov benchmark
 
-.PHONY: test test-cov test-coveralls benchmark test-all
+autod: install
+	@./node_modules/.bin/autod -w -e benchmark
+
+.PHONY: test
