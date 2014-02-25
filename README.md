@@ -5,14 +5,12 @@ urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](
 
 ![logo](https://raw.github.com/fengmk2/urlencode/master/logo.png)
 
-encodeURIComponent with charset.
-
-jscoverage: [100%](http://fengmk2.github.com/coverage/urlencode.html)
+encodeURIComponent with charset, e.g.: `gbk`
 
 ## Install
 
 ```bash
-$ npm install urlencode
+$ npm install urlencode --registry=http://r.cnpmjs.org
 ```
 
 ## Usage
@@ -57,6 +55,10 @@ urlencode.parse(qs, {charset: "gbk"}) x 16,401 ops/sec ±1.09% (98 runs sampled)
 urlencode.parse(qs, {charset: "utf8"}) x 23,381 ops/sec ±2.22% (93 runs sampled)
 Fastest is decodeURIComponent(str)
 ```
+
+## TODO
+
+* [ ] stringify()
 
 ## License
 

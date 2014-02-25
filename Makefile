@@ -32,4 +32,7 @@ test-all: test test-cov benchmark
 autod: install
 	@./node_modules/.bin/autod -w -e benchmark
 
+contributors: install
+	@./node_modules/.bin/contributors -f plain -o AUTHORS
+
 .PHONY: test

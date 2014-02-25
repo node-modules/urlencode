@@ -1,6 +1,6 @@
 {
   "name": "urlencode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "encodeURIComponent with charset",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "utility": "0.1.10"
   },
   "devDependencies": {
+    "contributors": "*",
     "autod": "*",
     "benchmark": "*",
     "blanket": "*",
@@ -35,7 +36,9 @@
     "urlencode",
     "urldecode",
     "encodeURIComponent",
-    "decodeURIComponent"
+    "decodeURIComponent",
+    "querystring",
+    "parse"
   ],
   "author": "fengmk2 <fengmk2@gmail.com>",
   "license": "MIT"
