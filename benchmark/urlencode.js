@@ -1,6 +1,6 @@
 /*!
  * urlencode - benchmark/urlencode.js
- * Copyright(c) 2012 fengmk2 <fengmk2@gmail.com>
+ * Copyright(c) 2012 - 2014 fengmk2 <fengmk2@gmail.com>
  * MIT Licensed
  */
 
@@ -12,6 +12,8 @@
 
 var Benchmark = require('benchmark');
 var urlencode = require('../');
+
+console.log('node version: %s', process.version);
 
 var suite = new Benchmark.Suite();
 
