@@ -6,6 +6,9 @@ MOCHA_OPTS =
 install:
 	@npm install --registry=http://r.cnpmjs.org
 
+jshint: install
+	@./node_modules/.bin/jshint .
+
 test: install
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter $(REPORTER) \
@@ -19,7 +22,7 @@ test-cov:
 	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=travis-cov
 	@ls -lh coverage.html
 
-test-coveralls:
+test-coveralls: jshint
 	@$(MAKE) test
 	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
 	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/.bin/coveralls
@@ -27,10 +30,11 @@ test-coveralls:
 benchmark:
 	@node benchmark/urlencode.js
 
-test-all: test test-cov benchmark
+test-all: jshint test test-cov benchmark
 
 autod: install
 	@./node_modules/.bin/autod -w -e benchmark
+	@(MAKE) install
 
 contributors: install
 	@./node_modules/.bin/contributors -f plain -o AUTHORS
