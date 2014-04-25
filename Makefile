@@ -4,7 +4,7 @@ TIMEOUT = 10000
 MOCHA_OPTS =
 
 install:
-	@npm install --registry=http://r.cnpmjs.org
+	@npm install --registry=http://registry.npm.taobao.org
 
 jshint: install
 	@./node_modules/.bin/jshint .
@@ -25,7 +25,7 @@ test-cov:
 test-coveralls: jshint
 	@$(MAKE) test
 	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
-	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/.bin/coveralls
+	@-$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/.bin/coveralls
 
 benchmark:
 	@node benchmark/urlencode.js
@@ -34,9 +34,9 @@ test-all: jshint test test-cov benchmark
 
 autod: install
 	@./node_modules/.bin/autod -w -e benchmark
-	@(MAKE) install
+	@$(MAKE) install
 
 contributors: install
 	@./node_modules/.bin/contributors -f plain -o AUTHORS
 
-.PHONY: test
+.PHONY: test benchmark

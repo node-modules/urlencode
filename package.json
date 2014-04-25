@@ -1,6 +1,6 @@
 {
   "name": "urlencode",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "encodeURIComponent with charset",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "iconv-lite": "0.2.11",
-    "utility": "0.1.12"
+    "utility": "0.1.13"
   },
   "devDependencies": {
     "autod": "*",
@@ -25,7 +25,7 @@
     "jshint": "*",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "should": "3.3.0",
+    "should": "3.3.1",
     "travis-cov": "*"
   },
   "homepage": "https://github.com/node-modules/urlencode",
