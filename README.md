@@ -1,9 +1,9 @@
-urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](http://travis-ci.org/fengmk2/urlencode) [![Coverage Status](https://coveralls.io/repos/fengmk2/urlencode/badge.png)](https://coveralls.io/r/fengmk2/urlencode)
+urlencode [![Build Status](https://secure.travis-ci.org/node-modules/urlencode.png)](http://travis-ci.org/node-modules/urlencode) [![Coverage Status](https://coveralls.io/repos/node-modules/urlencode/badge.png)](https://coveralls.io/r/node-modules/urlencode)
 =======
 
 [![NPM](https://nodei.co/npm/urlencode.png?downloads=true&stars=true)](https://nodei.co/npm/urlencode/)
 
-![logo](https://raw.github.com/fengmk2/urlencode/master/logo.png)
+![logo](https://raw.github.com/node-modules/urlencode/master/logo.png)
 
 encodeURIComponent with charset, e.g.: `gbk`
 
