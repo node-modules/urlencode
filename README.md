@@ -26,6 +26,12 @@ urlencode.decode('%CB%D5%C7%A7', 'gbk'); // '苏千'
 
 // parse gbk querystring
 urlencode.parse('nick=%CB%D5%C7%A7', {charset: 'gbk'}); // {nick: '苏千'}
+
+// stringify obj with gbk encoding
+var str = 'x[y][0][v][w]=' + urlencode('雾空', 'gbk'); // x[y][0][v][w]=%CE%ED%BF%D5
+var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+urlencode.stringify(obj, {charset: 'gbk'}).should.equal(str);
+
 ```
 
 ## Benchmark
@@ -58,7 +64,7 @@ Fastest is decodeURIComponent(str)
 
 ## TODO
 
-* [ ] stringify()
+* [x] stringify()
 
 ## License
 
