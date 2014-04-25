@@ -34,7 +34,6 @@ describe('urlencode.test.js', function () {
       var charset = item[1];
       var expect = item[2];
       it('should enocde ' + str.substring(0, 20) + ' with ' + charset + ' to ' + expect.substring(0, 30), function () {
-        // console.log(urlencode(str, charset))
         urlencode(str, charset).should.equal(expect);
       });
     });
@@ -88,5 +87,111 @@ describe('urlencode.test.js', function () {
         strid: 'a68f6ee38f44d2b89ca508444c1ccaf9'
       });
     });
+
+    // TODO
+    // var qs = 'x[y][0][v][w]=%CE%ED%BF%D5';
+    // var obj = {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+    // urlencode.parse(qs, {charset: 'gbk'})
+    //   .should.eql(obj);
   });
+
+  describe('stringify()', function () {
+    it('should work with gbk encoding', function () {
+      var obj = {xm: '苏千', xb: 1, xh: 1111};
+      urlencode.stringify(obj, {charset: 'gbk'})
+        .should.equal('xm=%CB%D5%C7%A7&xb=1&xh=1111');
+
+
+      // `qs` and `obj` is copy from `describe('parse()', ->)`
+      var qs = 'umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0&usertag3=512&usertag2=0&status=0&userid=665377421&out_user=suqian.yf%40taobao.com&promotedtype=0&account_no=20885028063394350156&loginstatus=true&usertag=0&nick=%CB%D5%C7%A7&tairlastupdatetime=1319008872&strid=a68f6ee38f44d2b89ca508444c1ccaf9';
+      obj = {
+        umidtoken: 'Tc230acc03a564530aee31d22701e9b95',
+        usertag4: '0',
+        usertag3: '512',
+        usertag2: '0',
+        status: '0',
+        userid: '665377421',
+        out_user: 'suqian.yf@taobao.com',
+        promotedtype: '0',
+        account_no: '20885028063394350156',
+        loginstatus: 'true',
+        usertag: '0',
+        nick: '苏千',
+        tairlastupdatetime: '1319008872',
+        strid: 'a68f6ee38f44d2b89ca508444c1ccaf9'
+      };
+      urlencode.stringify(obj, {charset: 'gbk'})
+        .should.equal(qs);
+
+
+      // str: x[y][0][v][w]=%CE%ED%BF%D5
+      var str = 'x[y][0][v][w]=' + urlencode('雾空', 'gbk');
+      var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.stringify(obj, {charset: 'gbk'}).should.equal(str);
+
+
+      // str : xh=23123&%CE%ED%BF%D5=%CE%ED%BF%D5
+      // 这里是 chrome 在 gbk 编码网页的行为
+      var str = 'xh=13241234' +
+        '&xb=1' +
+        '&' + urlencode('雾空', 'gbk') + '=' + urlencode('雾空', 'gbk');
+      var obj =  {xh: 13241234, xb: 1, '雾空': '雾空'};
+      urlencode.stringify(obj, {charset: 'gbk'}).should.equal(str);
+    });
+
+    it('should work with utf-8 encoding', function () {
+      var obj = {h: 1, j: 2, k: '3'};
+
+      urlencode.stringify(obj, {charset: 'utf-8'})
+        .should.equal('h=1&j=2&k=3');
+
+      urlencode.stringify(obj)
+        .should.equal('h=1&j=2&k=3');
+
+      var str = 'x[y][0][v][w]=1';
+      var obj =  {'x' : {'y' : [{'v' : {'w' : '1'}}]}};
+      urlencode.stringify(obj).should.equal(str);
+
+      var str = 'x[y][0][v][w]=' + encodeURIComponent('雾空');
+      var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.stringify(obj).should.equal(str);
+
+      var str = 'x[y][0][v][w]=' + encodeURIComponent('雾空');
+      var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.stringify(obj, {charset: 'utf-8'}).should.equal(str);
+    });
+
+    it('should work with big5 encoding', function () {
+      var str = 'x[y][0][v][w]=' + urlencode('雾空', 'big5');
+      var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.stringify(obj, {charset: 'big5'}).should.equal(str);
+    });
+
+    it('should support nest obj and array', function () {
+      var encoding = 'gbk';
+      var obj = {
+        edp: {
+          name: ['阿里', '巴巴', '数据产品'],
+          hello: 100,
+          nihao: '100',
+        },
+        good: '好'
+      };
+      // qs : edp[name][0]=%B0%A2%C0%EF
+      // &edp[name][1]=%B0%CD%B0%CD
+      // &edp[name][2]=%CA%FD%BE%DD%B2%FA%C6%B7
+      // &edp[hello]=100
+      // &edp[nihao]=100
+      // &good=%BA%C3
+      var qs = 'edp[name][0]=' + urlencode('阿里', encoding) +
+        '&edp[name][1]=' + urlencode('巴巴', encoding) +
+        '&edp[name][2]=' + urlencode('数据产品', encoding) +
+        '&edp[hello]=100' +
+        '&edp[nihao]=100' +
+        '&good=' + urlencode('好', encoding);
+      urlencode.stringify(obj, {charset: 'gbk'})
+        .should.equal(qs);
+    });
+  });
+
 });

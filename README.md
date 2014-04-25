@@ -1,9 +1,9 @@
-urlencode [![Build Status](https://secure.travis-ci.org/fengmk2/urlencode.png)](http://travis-ci.org/fengmk2/urlencode) [![Coverage Status](https://coveralls.io/repos/fengmk2/urlencode/badge.png)](https://coveralls.io/r/fengmk2/urlencode)
+urlencode [![Build Status](https://secure.travis-ci.org/node-modules/urlencode.png)](http://travis-ci.org/node-modules/urlencode) [![Coverage Status](https://coveralls.io/repos/node-modules/urlencode/badge.png)](https://coveralls.io/r/node-modules/urlencode)
 =======
 
 [![NPM](https://nodei.co/npm/urlencode.png?downloads=true&stars=true)](https://nodei.co/npm/urlencode/)
 
-![logo](https://raw.github.com/fengmk2/urlencode/master/logo.png)
+![logo](https://raw.github.com/node-modules/urlencode/master/logo.png)
 
 encodeURIComponent with charset, e.g.: `gbk`
 
@@ -26,6 +26,12 @@ urlencode.decode('%CB%D5%C7%A7', 'gbk'); // '苏千'
 
 // parse gbk querystring
 urlencode.parse('nick=%CB%D5%C7%A7', {charset: 'gbk'}); // {nick: '苏千'}
+
+// stringify obj with gbk encoding
+var str = 'x[y][0][v][w]=' + urlencode('雾空', 'gbk'); // x[y][0][v][w]=%CE%ED%BF%D5
+var obj =  {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+urlencode.stringify(obj, {charset: 'gbk'}).should.equal(str);
+
 ```
 
 ## Benchmark
@@ -58,7 +64,7 @@ Fastest is decodeURIComponent(str)
 
 ## TODO
 
-* [ ] stringify()
+* [x] stringify()
 
 ## License
 
