@@ -29,6 +29,7 @@ test-coveralls: jshint
 
 benchmark:
 	@node benchmark/urlencode.js
+	@node benchmark/urlencode.decode.js
 
 test-all: jshint test test-cov benchmark
 

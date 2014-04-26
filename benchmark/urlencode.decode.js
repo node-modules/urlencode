@@ -17,7 +17,7 @@
 var Benchmark = require('benchmark');
 var urlencode = require('../');
 
-console.log('node version: %s', process.version);
+console.log('node version: %s, date: %j', process.version, new Date());
 
 var suite = new Benchmark.Suite();
 
@@ -36,6 +36,11 @@ var gbkDecodeItems = [
 ];
 
 // console.log(urlencode.decode(gbkDecodeItems[3], 'gbk'))
+
+var gbkEncodeString = 'umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0&usertag3=512&usertag2=0&status=0&userid=665377421&out_user=suqian.yf%40taobao.com&promotedtype=0&account_no=20885028063394350156&loginstatus=true&usertag=0&nick=%CB%D5%C7%A7&tairlastupdatetime=1319008872&strid=a68f6ee38f44d2b89ca508444c1ccaf9';
+var data = urlencode.parse(gbkEncodeString, {charset: 'gbk'});
+
+// console.log(urlencode.stringify(data, {charset: 'gbk'}) === gbkEncodeString);
 
 suite
 
@@ -61,13 +66,20 @@ suite
 })
 
 .add('urlencode.parse(qs, {charset: "gbk"})', function () {
-  urlencode.parse('umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0&usertag3=512&usertag2=0&status=0&userid=665377421&out_user=suqian.yf%40taobao.com&promotedtype=0&account_no=20885028063394350156&loginstatus=true&usertag=0&nick=%CB%D5%C7%A7&tairlastupdatetime=1319008872&strid=a68f6ee38f44d2b89ca508444c1ccaf9',
-    {charset: 'gbk'});
+  urlencode.parse(gbkEncodeString, {charset: 'gbk'});
+})
+
+.add('urlencode.stringify(data, {charset: "gbk"})', function () {
+  urlencode.stringify(data, {charset: 'gbk'});
 })
 
 .add('urlencode.parse(qs, {charset: "utf8"})', function () {
   urlencode.parse('umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0&usertag3=512&usertag2=0&status=0&userid=665377421&out_user=suqian.yf%40taobao.com&promotedtype=0&account_no=20885028063394350156&loginstatus=true&usertag=0&nick=%E8%8B%8F%E5%8D%83&tairlastupdatetime=1319008872&strid=a68f6ee38f44d2b89ca508444c1ccaf9',
     {charset: 'utf8'});
+})
+
+.add('urlencode.stringify(data, {charset: "utf8"})', function () {
+  urlencode.stringify(data, {charset: 'utf8'});
 })
 
 // add listeners
@@ -78,4 +90,3 @@ suite
   console.log('Fastest is ' + this.filter('fastest').pluck('name'));
 })
 .run();
-
