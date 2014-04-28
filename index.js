@@ -1,1 +1,1 @@
-module.exports = require('./lib/urlencode');
+module.exports = require('./lib/index');

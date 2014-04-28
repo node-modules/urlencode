@@ -67,6 +67,31 @@ describe('urlencode.test.js', function () {
   });
 
   describe('parse()', function () {
+    it('should work with utf-8 encoding', function () {
+      var qs = 'umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0';
+      var obj = urlencode.parse(qs);
+      obj.should.eql({
+        "umidtoken": "Tc230acc03a564530aee31d22701e9b95",
+        "usertag4": "0"
+      });
+
+      var qs = 'a=%E9%9B%BE%E7%A9%BA&b=2&c=hello';
+      var obj = urlencode.parse(qs);
+      obj.should.eql({
+        a: '雾空',
+        b: '2',
+        c: 'hello'
+      });
+
+      var qs = 'a=%E9%9B%BE%E7%A9%BA&b=2&c=hello';
+      var obj = urlencode.parse(qs, {charset: 'utf-8'});
+      obj.should.eql({
+        a: '雾空',
+        b: '2',
+        c: 'hello'
+      });
+    });
+
     it('should work with gbk encoding', function () {
       var qs = 'umidtoken=Tc230acc03a564530aee31d22701e9b95&usertag4=0&usertag3=512&usertag2=0&status=0&userid=665377421&out_user=suqian.yf%40taobao.com&promotedtype=0&account_no=20885028063394350156&loginstatus=true&usertag=0&nick=%CB%D5%C7%A7&tairlastupdatetime=1319008872&strid=a68f6ee38f44d2b89ca508444c1ccaf9';
       var obj = urlencode.parse(qs, {charset: 'gbk'});
@@ -88,11 +113,18 @@ describe('urlencode.test.js', function () {
       });
     });
 
-    // TODO
-    // var qs = 'x[y][0][v][w]=%CE%ED%BF%D5';
-    // var obj = {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
-    // urlencode.parse(qs, {charset: 'gbk'})
-    //   .should.eql(obj);
+    it('should support nest', function () {
+      var qs = 'x[y][0][v][w]=%E9%9B%BE%E7%A9%BA';
+      var obj = {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.parse(qs)
+        .should.eql(obj);
+
+      var qs = 'x[y][0][v][w]=%CE%ED%BF%D5';
+      var obj = {'x' : {'y' : [{'v' : {'w' : '雾空'}}]}};
+      urlencode.parse(qs, {charset: 'gbk'})
+        .should.eql(obj);
+    });
+
   });
 
   describe('stringify()', function () {
