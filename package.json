@@ -1,6 +1,6 @@
 {
-  "name": "urlencode",
-  "version": "0.2.0",
+  "name": "urlencode2",
+  "version": "1.0.0",
   "description": "encodeURIComponent with charset",
   "main": "index.js",
   "scripts": {
@@ -28,10 +28,10 @@
     "should": "3.3.1",
     "travis-cov": "*"
   },
-  "homepage": "https://github.com/node-modules/urlencode",
+  "homepage": "https://github.com/alsotang/urlencode",
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-modules/urlencode.git"
+    "url": "https://github.com/alsotang/urlencode.git"
   },
   "keywords": [
     "urlencode",
@@ -39,7 +39,8 @@
     "encodeURIComponent",
     "decodeURIComponent",
     "querystring",
-    "parse"
+    "parse",
+    "charset"
   ],
   "author": "fengmk2 <fengmk2@gmail.com>",
   "license": "MIT"
