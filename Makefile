@@ -34,7 +34,7 @@ benchmark:
 test-all: jshint test test-cov benchmark
 
 autod: install
-	@./node_modules/.bin/autod -w -e benchmark
+	@./node_modules/.bin/autod -w -e benchmark --prefix "~"
 	@$(MAKE) install
 
 contributors: install
