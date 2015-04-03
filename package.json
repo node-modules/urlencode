@@ -13,8 +13,8 @@
     "travis-cov": { "threshold": 98 }
   },
   "dependencies": {
-    "iconv-lite": "~0.4.4",
-    "utility": "~1.2.0"
+    "iconv-lite": "~0.4.7",
+    "utility": "~1.3.0"
   },
   "devDependencies": {
     "autod": "*",
@@ -26,7 +26,7 @@
     "jshint": "*",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "should": "~4.0.4",
+    "should": "~5.2.0",
     "travis-cov": "*"
   },
   "homepage": "https://github.com/node-modules/urlencode",
