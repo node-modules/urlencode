@@ -38,7 +38,11 @@ export default encode;
 
 export function decode(str: string, charset?: string | null) {
   if (!charset || isUTF8(charset)) {
-    return decodeURIComponent(str);
+    try {
+      return decodeURIComponent(str);
+    } catch {
+      return str;
+    }
   }
 
   const bytes = [];

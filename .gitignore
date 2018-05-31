@@ -1,5 +1,7 @@
 lib-cov
 coverage/
+.idea/
+
 *.seed
 *.log
 *.csv
