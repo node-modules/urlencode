@@ -10,20 +10,6 @@ declare module 'urlencode' {
     maxKeys?: number | string
   }
 
-  function isUTF8(charset: string): boolean
-
-  function has(obj: object, prop: string | number | symbol): boolean
-
-  function isASCII(str: string): boolean
-
-  function encodeComponent(item: any, charset: string): string
-
-  function stringifyString(str: string, prefix: string | number, options: Config): string
-
-  function stringifyArray(arr: any[], prefix?: string | number, options?: Config): string
-
-  function stringifyObject(obj: object, prefix?: string | number, options?: Config): string
-
   export function encode(str: string, charset: string): string
 
   export function decode(str: string, charset: string): string
