@@ -50,6 +50,32 @@ assert.equal(urlencode.stringify(obj, { charset: 'gbk' }, str);
 ```bash
 $ node benchmark/urlencode.cjs
 
+node version: v21.1.0
+"苏千测试\n, 哈哈, haha"
+
+  urlencode Benchmark
+  node version: v21.1.0, date: Sat Oct 28 2023 21:01:00 GMT+0800 (中国标准时间)
+  Starting...
+  4 tests completed.
+
+  urlencode(str)          x 4,617,242 ops/sec ±2.60% (95 runs sampled)
+  urlencode(str, "gbk")   x 1,122,430 ops/sec ±2.20% (95 runs sampled)
+  encodeURIComponent(str) x 4,608,523 ops/sec ±2.94% (93 runs sampled)
+  encodeUTF8(str)         x   833,170 ops/sec ±1.37% (96 runs sampled)
+
+node version: v20.9.0
+"苏千测试\n, 哈哈, haha"
+
+  urlencode Benchmark
+  node version: v20.9.0, date: Sat Oct 28 2023 21:01:37 GMT+0800 (中国标准时间)
+  Starting...
+  4 tests completed.
+
+  urlencode(str)          x 4,304,468 ops/sec ±2.83% (89 runs sampled)
+  urlencode(str, "gbk")   x 1,005,759 ops/sec ±2.10% (90 runs sampled)
+  encodeURIComponent(str) x 4,289,880 ops/sec ±2.99% (92 runs sampled)
+  encodeUTF8(str)         x   827,841 ops/sec ±1.06% (96 runs sampled)
+
 node version: v18.18.0
 "苏千测试\n, 哈哈, haha"
 
@@ -62,6 +88,20 @@ node version: v18.18.0
   urlencode(str, "gbk")   x   633,620 ops/sec ±15.31% (71 runs sampled)
   encodeURIComponent(str) x 3,902,229 ops/sec ±2.49% (87 runs sampled)
   encodeUTF8(str)         x   510,456 ops/sec ±26.76% (88 runs sampled)
+
+node version: v16.20.2
+"苏千测试\n, 哈哈, haha"
+
+  urlencode Benchmark
+  node version: v16.20.2, date: Sat Oct 28 2023 21:02:11 GMT+0800 (中国标准时间)
+  Starting...
+  4 tests completed.
+
+  urlencode(str)          x 4,438,372 ops/sec ±1.80% (93 runs sampled)
+  urlencode(str, "gbk")   x 1,175,761 ops/sec ±0.68% (95 runs sampled)
+  encodeURIComponent(str) x 4,374,525 ops/sec ±1.96% (97 runs sampled)
+  encodeUTF8(str)         x   751,616 ops/sec ±2.49% (86 runs sampled)
+
 ```
 
 ### decode(str, encoding)

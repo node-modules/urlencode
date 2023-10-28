@@ -4,9 +4,9 @@
   "description": "encodeURIComponent with charset",
   "scripts": {
     "test": "egg-bin test",
-    "ci": "npm run lint && egg-bin cov && npm run benchmark",
+    "ci": "npm run lint && egg-bin cov && npm run prepublishOnly && npm run benchmark",
     "lint": "eslint . --ext ts",
-    "benchmark": "node benchmark/urlencode.js && node benchmark/urlencode.decode.js",
+    "benchmark": "node benchmark/urlencode.cjs && node benchmark/urlencode.decode.cjs",
     "prepublishOnly": "tshy && tshy-after"
   },
   "dependencies": {
