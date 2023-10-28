@@ -8,7 +8,7 @@ encodeURIComponent with charset, e.g.: `gbk`
 ## Install
 
 ```bash
-$ npm install urlencode
+$ npm install urlencode@1
 ```
 
 ## Usage

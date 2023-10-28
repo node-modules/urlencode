@@ -1,6 +1,9 @@
 {
   "name": "urlencode",
   "version": "1.1.0",
+  "publishConfig": {
+    "tag": "latest-1"
+  },
   "description": "encodeURIComponent with charset",
   "main": "lib/urlencode.js",
   "files": [
