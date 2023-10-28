@@ -69,6 +69,36 @@ node version: v18.18.0
 ```bash
 $ node benchmark/urlencode.decode.cjs
 
+node version: v21.1.0, date: "2023-10-28T12:51:20.191Z"
+
+  urlencode.decode Benchmark
+  node version: v21.1.0, date: Sat Oct 28 2023 20:51:20 GMT+0800 (中国标准时间)
+  Starting...
+  7 tests completed.
+
+  urlencode.decode(str)                        x 515,410 ops/sec ±1.95% (91 runs sampled)
+  urlencode.decode(str, "gbk")                 x  54,018 ops/sec ±3.17% (78 runs sampled)
+  decodeURIComponent(str)                      x 313,204 ops/sec ±2.93% (78 runs sampled)
+  urlencode.parse(qs, {charset: "gbk"})        x 311,613 ops/sec ±1.26% (95 runs sampled)
+  urlencode.stringify(data, {charset: "gbk"})  x 316,558 ops/sec ±1.55% (93 runs sampled)
+  urlencode.parse(qs, {charset: "utf8"})       x 490,744 ops/sec ±1.25% (94 runs sampled)
+  urlencode.stringify(data, {charset: "utf8"}) x 357,206 ops/sec ±0.46% (97 runs sampled)
+
+node version: v20.9.0, date: "2023-10-28T12:49:57.236Z"
+
+  urlencode.decode Benchmark
+  node version: v20.9.0, date: Sat Oct 28 2023 20:49:57 GMT+0800 (中国标准时间)
+  Starting...
+  7 tests completed.
+
+  urlencode.decode(str)                        x 573,899 ops/sec ±0.62% (95 runs sampled)
+  urlencode.decode(str, "gbk")                 x  83,184 ops/sec ±0.13% (100 runs sampled)
+  decodeURIComponent(str)                      x 573,371 ops/sec ±1.67% (93 runs sampled)
+  urlencode.parse(qs, {charset: "gbk"})        x 303,202 ops/sec ±0.70% (100 runs sampled)
+  urlencode.stringify(data, {charset: "gbk"})  x 319,546 ops/sec ±0.29% (99 runs sampled)
+  urlencode.parse(qs, {charset: "utf8"})       x 462,578 ops/sec ±0.25% (98 runs sampled)
+  urlencode.stringify(data, {charset: "utf8"}) x 343,487 ops/sec ±0.17% (100 runs sampled)
+
 node version: v18.18.0, date: "2023-10-28T12:44:56.355Z"
 
   urlencode.decode Benchmark
@@ -83,6 +113,22 @@ node version: v18.18.0, date: "2023-10-28T12:44:56.355Z"
   urlencode.stringify(data, {charset: "gbk"})  x 234,162 ops/sec ±4.55% (75 runs sampled)
   urlencode.parse(qs, {charset: "utf8"})       x 316,697 ops/sec ±4.37% (78 runs sampled)
   urlencode.stringify(data, {charset: "utf8"}) x 192,787 ops/sec ±4.58% (80 runs sampled)
+
+node version: v16.20.2, date: "2023-10-28T12:47:38.431Z"
+
+  urlencode.decode Benchmark
+  node version: v16.20.2, date: Sat Oct 28 2023 20:47:38 GMT+0800 (中国标准时间)
+  Starting...
+  7 tests completed.
+
+  urlencode.decode(str)                        x 537,995 ops/sec ±2.07% (96 runs sampled)
+  urlencode.decode(str, "gbk")                 x  78,073 ops/sec ±0.17% (99 runs sampled)
+  decodeURIComponent(str)                      x 558,509 ops/sec ±0.48% (96 runs sampled)
+  urlencode.parse(qs, {charset: "gbk"})        x 252,590 ops/sec ±2.87% (90 runs sampled)
+  urlencode.stringify(data, {charset: "gbk"})  x 287,978 ops/sec ±2.47% (92 runs sampled)
+  urlencode.parse(qs, {charset: "utf8"})       x 416,600 ops/sec ±0.72% (93 runs sampled)
+  urlencode.stringify(data, {charset: "utf8"}) x 281,319 ops/sec ±2.43% (85 runs sampled)
+
 ```
 
 ## License
