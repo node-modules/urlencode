@@ -37,7 +37,7 @@ describe('urlencode.test.js', () => {
         'gbk',
         '苏千，nodejs。！@#￥%……&**（&*）&）}{|~~！@+——？、》《。，“‘：；|、】【}{~·中文',
       ],
-      ['bad% string', 'utf8', 'bad% string']
+      [ 'bad% string', 'utf8', 'bad% string' ],
     ];
 
     decodeItems.forEach(item => {
