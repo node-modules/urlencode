@@ -1,3 +1,17 @@
+# Changelog
+
+## [2.0.0](https://github.com/node-modules/urlencode/compare/v1.1.0...v2.0.0) (2023-10-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop Node.js < 16 support
+
+closes https://github.com/node-modules/urlencode/issues/22
+
+### Features
+
+* support esm and cjs both ([#23](https://github.com/node-modules/urlencode/issues/23)) ([8f9308f](https://github.com/node-modules/urlencode/commit/8f9308fc830a2ba380343c8bce154aae3f3551f0))
 
 1.1.0 / 2015-08-14
 ==================
